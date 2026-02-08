@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>マナ党~オンラインカジノ編~</title>
+<style>
+
+:root{
+  --bg0:#04120b;
+  --bg1:#061d12;
+  --felt:#0b3a24;
+  --felt2:#0a2f1d;
+  --panel:rgba(9,24,16,.72);
+  --text:#f4f7ff;
+  --muted:#b7c3d9;
+  --gold:#d6b25e;
+  --gold2:#ffdf8a;
+  --danger:#ff5a6b;
+  --ok:#57ff9a;
+  --shadow: 0 18px 60px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  color:var(--text);
+  font-family: system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;
+  background:
+    radial-gradient(900px 520px at 30% 0%, rgba(214,178,94,.10), transparent 60%),
+    radial-gradient(1100px 720px at 80% 10%, rgba(0,0,0,.45), transparent 62%),
+    radial-gradient(900px 700px at 50% 120%, rgba(0,0,0,.55), transparent 62%),
+    linear-gradient(180deg, var(--bg1), var(--bg0));
+}
+a{color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:16px}
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:10px 12px;border-radius:16px;
+  background: rgba(0,0,0,.18);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow: var(--shadow);
+}
+.brand{display:flex;flex-direction:column;gap:2px}
+.brand h1{margin:0;font-size:18px;letter-spacing:.6px}
+.brand .sub{font-size:12px;color:rgba(244,247,255,.72)}
+.nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.btn{
+  appearance:none;border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.06);
+  color:var(--text);
+  padding:10px 12px;border-radius:14px;
+  font-weight:800;font-size:13px;
+  cursor:pointer;
+  box-shadow: 0 14px 34px rgba(0,0,0,.30);
+  transition: transform .06s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+  text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:8px;
+}
+.btn:hover{background: rgba(255,255,255,.10)}
+.btn.primary:hover{filter:brightness(1.04)}
+.btn:active{transform: translateY(1px)}
+.btn.primary{
+  border-color: rgba(214,178,94,.30);
+  background: linear-gradient(180deg, rgba(214,178,94,.12), rgba(214,178,94,.06));
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.30),
+    0 0 8px rgba(214,178,94,.18),
+    inset 0 0 10px rgba(255,215,128,.14);
+  color: rgba(255,244,214,.95);
+}
+.btn.danger{
+  border-color: rgba(255,90,107,.35);
+  background: rgba(255,90,107,.12);
+}
+.pill{
+  font-size:12px;padding:6px 10px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.06);
+  color:rgba(244,247,255,.78);
+  white-space:nowrap;
+}
+.gold-frame{
+  border-radius:18px;
+  border:1.5px solid rgba(214,178,94,.55);
+  box-shadow:
+    0 0 6px rgba(214,178,94,.32),
+    inset 0 0 10px rgba(255,215,128,.16);
+  position:relative;
+}
+.gold-frame::after{
+  content:"";
+  position:absolute; inset:-2px;
+  border-radius:20px;
+  background: linear-gradient(120deg, transparent 35%, rgba(255,223,138,.25), transparent 70%);
+  background-size: 240% 100%;
+  animation: goldShine 6.5s linear infinite;
+  pointer-events:none;
+  opacity:.35;
+}
+@keyframes goldShine{
+  from{background-position:-200% 0}
+  to{background-position:200% 0}
+}
+.cardpanel{
+  background: var(--panel);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  box-shadow: var(--shadow);
+}
+
+.hero{margin-top:14px;padding:18px}
+.heroInner{display:grid;gap:14px}
+@media(min-width:880px){.heroInner{grid-template-columns:1.2fr .8fr;align-items:stretch}}
+.heroCard{padding:18px}
+.hTitle{font-size:26px;font-weight:1000;margin:0 0 8px;letter-spacing:1px}
+.hLead{margin:0;color:rgba(244,247,255,.76);line-height:1.8;font-size:14px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.ruleBox{padding:16px}
+.ruleBox h3{margin:0 0 8px;font-size:14px;letter-spacing:.6px}
+.ruleBox ul{margin:0;padding-left:18px;color:rgba(244,247,255,.78);line-height:1.8;font-size:13px}
+.smallLinks{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;color:rgba(244,247,255,.72);font-size:12px}
+.footer{margin-top:14px;color:rgba(244,247,255,.62);font-size:12px;line-height:1.7}
+
+.featureRow{
+  display:grid; gap:10px; margin-top:14px;
+}
+@media(min-width:860px){
+  .featureRow{ grid-template-columns:1fr 1fr 1fr; }
+}
+.feature{
+  padding:12px 12px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.18);
+}
+.ftTitle{
+  font-weight:900; letter-spacing:.8px; font-size:12px;
+  color: rgba(255,223,138,.95);
+  margin-bottom:6px;
+}
+.ftText{
+  font-size:12px; line-height:1.55; color: rgba(255,255,255,.78);
+}
+
+.profilePanel{margin-top:14px; text-align:center; padding:22px 18px;}
+.profilePanel h2{margin:0 0 12px; font-size:18px; letter-spacing:.7px}
+.profilePanel p{margin:0; line-height:2.0; color:rgba(244,247,255,.80); font-size:14px}
+.miniNav{margin-top:14px; display:flex; justify-content:center}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="topbar">
+    <div class="brand">
+      <h1>マナ党~オンラインカジノ編~</h1>
+      <div class="sub">ブラックジャック（娯楽ミニゲーム）</div>
+    </div>
+    <div class="nav">
+      <a class="btn" href="#profile">プロフィール</a>
+      <a class="btn" href="game.html">ゲームへ</a>
+    </div>
+  </div>
+
+  <section class="hero gold-frame hero">
+    <div class="heroInner">
+      <div class="cardpanel heroCard" style="padding:18px;">
+        <h2 class="hTitle">WELCOME</h2>
+        <p class="hLead">
+          マナ党公式オンラインカジノへようこそ！<br/>
+          こちらは<strong>娯楽目的</strong>のミニゲームです。実際の賭博・金銭のやり取りは一切行っておりません。
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="game.html">START（ブラックジャック）</a>
+          <button class="btn" id="soundBtn" type="button">SE：ON</button>
+        </div>
+
+        <div class="smallLinks">
+          <span class="pill">勝利：ご褒美画像</span>
+          <span class="pill">21勝利：特別ご褒美</span>
+          <span class="pill">トランプ：Kenney素材</span>
+        </div>
+
+        <div class="footer">
+          ※ iPhoneでは最初の操作後に効果音が有効になります。先に「SE：ON/OFF」を押しておくと確実です。
+        </div>
+      </div>
+
+      <div class="cardpanel ruleBox" style="padding:16px;">
+        <h3>遊び方（超短い）</h3>
+        <ul>
+          <li><strong>HIT</strong>：カードを引く</li>
+          <li><strong>STAND</strong>：勝負する</li>
+          <li>21を超えると負け（バースト）</li>
+          <li>勝つたびにプレゼントが出ます</li>
+        </ul>
+      </div>
+    </div>
+  
+        <div class="featureRow">
+          <div class="feature">
+            <div class="ftTitle">遊び方</div>
+            <div class="ftText">HITで引く / STANDで勝負。21を超えるとバーストです。</div>
+          </div>
+          <div class="feature">
+            <div class="ftTitle">ご褒美</div>
+            <div class="ftText">1回勝利ごとにプレゼント。21ぴったり勝利は特別演出。</div>
+          </div>
+</div>
+</section>
+</div>
+
+<script>
+  const key="mana_party_sfx";
+  const btn=document.getElementById("soundBtn");
+  function refresh(){
+    const v=localStorage.getItem(key);
+    const on=(v===null)?true:(v==="1");
+    btn.textContent = "SE：" + (on ? "ON" : "OFF");
+  }
+  refresh();
+  btn.addEventListener("click", ()=>{
+    const v=localStorage.getItem(key);
+    const on=(v===null)?true:(v==="1");
+    localStorage.setItem(key, on ? "0":"1");
+    refresh();
+  });
+</script>
+</body>
+</html>
+    <section id="profile" class="cardpanel gold-frame profilePanel">
+      <h2>PROFILE</h2>
+      <p>マナ党公式オンラインカジノへようこそ！<br><br>彼は幼少期より、数学とオンラインカジノに対して<br>異様なほどの興味と関心を抱いておりました。<br>ゲームに1回勝利するごとに、マナ党よりプレゼントがございます。<br>ぜひお楽しみください。</p>
+      <div class="miniNav">
+        <a class="btn" href="game.html">ゲームへ</a>
+      </div>
+    </section>
+
